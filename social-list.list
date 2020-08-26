@@ -13,7 +13,7 @@ apps.facebook.com
 staticxx.facebook.com
 fr-fr.facebook.com
 de-de.facebook.com
- 
+
 # ----------------------------------------------------------
 # PI-HOLE SOCIAL BLOCKLIST: INSTAGRAM
 # ----------------------------------------------------------
@@ -23,7 +23,7 @@ www.instagram.com
 l.instsagram.com
 help.instagram.com
 business.instagram.com
- 
+
 # ----------------------------------------------------------
 # PI-HOLE SOCIAL BLOCKLIST: SNAPCHAT
 # ----------------------------------------------------------
@@ -41,7 +41,7 @@ snapcamera.snapchat.com
 support.snapchat.com
 snapads.com
 snapkit.com
- 
+
 # ----------------------------------------------------------
 # PI-HOLE SOCIAL BLOCKLIST: TIKTOK
 # ----------------------------------------------------------
@@ -76,7 +76,6 @@ log2.musical.ly
 api2-21-h2.musical.ly
 musically.ly
 
- 
 # ----------------------------------------------------------
 # PI-HOLE SOCIAL BLOCKLIST: TWITTER
 # ----------------------------------------------------------
@@ -92,7 +91,7 @@ mobile.twitter.com
 platform.twitter.com
 ads.twitter.com
 support.twitter.com
- 
+
 # ----------------------------------------------------------
 # PI-HOLE SOCIAL BLOCKLIST: WECHAT
 # ----------------------------------------------------------
