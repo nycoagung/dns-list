@@ -1,0 +1,170 @@
+# ----------------------------------------------------------
+# PI-HOLE BLOCKLIST: ONLINE GAMING
+# Launchers, storefronts, major titles, console services,
+# cloud gaming, mobile/SEA publishers, browser game portals,
+# Android emulators, and DNS/VPN bypass endpoints.
+#
+# Apply to a restricted group only - on Default this blocks
+# gaming for every device in the house.
+#
+# NOTE: four pattern rules cannot live in a subscribed list,
+# because gravity lists hold domains, not regexes. Add these
+# by hand as Regex deny entries or the "unblocked games"
+# mirror sites will walk straight around this file:
+#     unblocked
+#     tyrone
+#     freegames?[0-9]
+#     gamesfree
+#
+# Excludes nintendo.* on purpose - collides with the
+# accounts.nintendo.com allow rules needed by the Switches.
+# ----------------------------------------------------------
+1001juegos.com
+4399.com
+a10.com
+abcya.com
+activision.com
+addictinggames.com
+agame.com
+amazonluna.com
+antstream.com
+apexlegends.com
+armorgames.com
+battle.net
+bethesda.net
+blacknut.com
+blizzard.com
+bluestacks.com
+boosteroid.com
+brawlhalla.com
+brawlstars.com
+callofduty.com
+clashofclans.com
+clashroyale.com
+cloudflare-dns.com
+cloudflareclient.com
+coolmath-games.com
+coolmath.com
+coolmathgames.com
+crazygames.com
+cyberghostvpn.com
+demonware.net
+dns.adguard-dns.com
+dns.controld.com
+dns.google
+dns.nextdns.io
+dns.quad9.net
+doh.cleanbrowsing.org
+doh.dns.sb
+doh.opendns.com
+dreamgames.com
+ea.com
+eaassets.com
+easebar.com
+epicgames.com
+epicgames.dev
+expressvpn.com
+fortnite.com
+freefireind.in
+freefiremobile.com
+friv.com
+gameloft.com
+gameloop.com
+gamepix.com
+gamesgames.com
+garena.co.id
+garena.com
+garena.sg
+geforcenow.com
+geometryspot.com
+gog.com
+greenmangaming.com
+habbo.com
+habby.com
+hola.org
+humblebundle.com
+igamecj.com
+innersloth.com
+itch.io
+jagex.com
+king.com
+kizi.com
+kongregate.com
+krafton.com
+lagged.com
+ldplayer.net
+leagueoflegends.com
+mask.icloud.com
+mathplayground.com
+memuplay.com
+minecraft.net
+minecraftservices.com
+miniclip.com
+mobilelegends.com
+mojang.com
+moonlight-stream.org
+moonton.com
+mozilla.cloudflare-dns.com
+mtjoy.com
+neopets.com
+netease-game.com
+netease.com
+newgrounds.com
+nitrome.com
+nordvpn.com
+now.gg
+nvidiagrid.net
+origin.com
+parsec.app
+pathofexile.com
+playoverwatch.com
+playrix.com
+playstation.com
+playstation.net
+poki.cloud
+poki.com
+primarygames.com
+protonvpn.com
+pubg.com
+pubgmobile.com
+rainway.com
+rbxcdn.com
+riotcdn.net
+riotgames.com
+roblox.com
+roblox.qq.com
+robtopgames.com
+rockstargames.com
+rovio.com
+runescape.com
+scopely.com
+shadow.tech
+silvergames.com
+sonyentertainmentnetwork.com
+steamcommunity.com
+steamcontent.com
+steamgames.com
+steampowered.com
+steamserver.net
+steamstatic.com
+supercell.com
+supercellid.com
+surfshark.com
+tunnelbear.com
+ubi.com
+ubisoft.com
+ubisoftconnect.com
+unrealengine.com
+urban-vpn.com
+utomik.com
+valorant.com
+voodoo.io
+warframe.com
+windscribe.com
+worldofwarcraft.com
+xbox.com
+xboxlive.com
+xboxservices.com
+y8.com
+y8.org
+zynga.com
