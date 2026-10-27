@@ -1,24 +1,15 @@
-# ----------------------------------------------------------
-# PI-HOLE BLOCKLIST: ONLINE GAMING
-# Launchers, storefronts, major titles, console services,
-# cloud gaming, mobile/SEA publishers, browser game portals,
-# Android emulators, and DNS/VPN bypass endpoints.
+# Hand-made additions to the gaming list of dns-list. One domain per line.
+# Launchers, storefronts, major titles, console services, cloud gaming, mobile
+# publishers, browser game portals, Android emulators, and DNS and VPN services
+# used to get around blocking.
 #
-# Apply to a restricted group only - on Default this blocks
-# gaming for every device in the house.
+# Pattern rules cannot live in a list (Pi-hole lists hold names, not regexes).
+# Add these by hand as regex deny entries, or "unblocked games" mirror sites
+# get around this list: unblocked, tyrone, freegames?[0-9], gamesfree
 #
-# NOTE: four pattern rules cannot live in a subscribed list,
-# because gravity lists hold domains, not regexes. Add these
-# by hand as Regex deny entries or the "unblocked games"
-# mirror sites will walk straight around this file:
-#     unblocked
-#     tyrone
-#     freegames?[0-9]
-#     gamesfree
-#
-# Excludes nintendo.* on purpose - collides with the
-# accounts.nintendo.com allow rules needed by the Switches.
-# ----------------------------------------------------------
+# nintendo.* is left out on purpose: it collides with the accounts.nintendo.com
+# allow rules that Nintendo consoles need.
+
 1001juegos.com
 4399.com
 a10.com
@@ -168,3 +159,20 @@ xboxservices.com
 y8.com
 y8.org
 zynga.com
+
+# Browser and kids' games
+animaljam.com
+arcadespot.com
+deeeep.io
+emulatoronline.com
+freeaddon.com
+game8.co
+game8.jp
+meowplayground.com
+meowthecatpet.com
+mope.io
+msgamestudios.com
+slither.io
+sylestia.com
+transformice.com
+zombsroyale.io

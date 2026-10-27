@@ -1,3 +1,5 @@
+# Hand-made additions to the social-media list of dns-list. One domain per line.
+
 # ----------------------------------------------------------
 # PI-HOLE SOCIAL BLOCKLIST: FACEBOOK
 # ----------------------------------------------------------
@@ -99,3 +101,19 @@ support.twitter.com
 wechat.com
 www.wechat.com
 weixin.qq.com
+
+# Chat, forums and communities
+4chan.org
+archiveofourown.org
+deviantart.com
+discord.com
+discord.gg
+discordapp.net
+drift.com
+favim.com
+pinterest.com
+qq.com
+redd.it
+reddit.com
+redditmedia.com
+redditstatic.com

@@ -313,12 +313,12 @@
       ]
     },
     "social-media": {
-      "description": "Facebook, Instagram, TikTok, X (Twitter), Snapchat and WeChat.",
+      "description": "Social networks, chat and forums: Facebook, Instagram, TikTok, X (Twitter), Snapchat, WeChat, Discord, Reddit, Pinterest and more.",
       "parts": 1,
       "sources": [
         {
-          "name": "social-list.list",
-          "path": "social-list.list",
+          "name": "hand-made/social-media.txt",
+          "path": "hand-made/social-media.txt",
           "homepage": "https://github.com/nycoagung/dns-list",
           "licence": "GPL-3.0"
         },
@@ -348,8 +348,8 @@
         }
       ]
     },
-    "youtube": {
-      "description": "YouTube.",
+    "video": {
+      "description": "YouTube, Twitch and other video streaming, plus drama, anime and K-pop sites.",
       "parts": 1,
       "sources": [
         {
@@ -357,6 +357,12 @@
           "url": "https://blocklistproject.github.io/Lists/youtube.txt",
           "homepage": "https://github.com/blocklistproject/Lists",
           "licence": "Unlicense"
+        },
+        {
+          "name": "hand-made/video.txt",
+          "path": "hand-made/video.txt",
+          "homepage": "https://github.com/nycoagung/dns-list",
+          "licence": "GPL-3.0"
         }
       ]
     },
@@ -365,8 +371,8 @@
       "parts": 1,
       "sources": [
         {
-          "name": "gaming-list.list",
-          "path": "gaming-list.list",
+          "name": "hand-made/gaming.txt",
+          "path": "hand-made/gaming.txt",
           "homepage": "https://github.com/nycoagung/dns-list",
           "licence": "GPL-3.0"
         }
@@ -411,18 +417,6 @@
           "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/fakenews/hosts",
           "homepage": "https://github.com/StevenBlack/hosts",
           "licence": "MIT"
-        }
-      ]
-    },
-    "custom": {
-      "description": "Hand-picked sites.",
-      "parts": 1,
-      "sources": [
-        {
-          "name": "list.list",
-          "path": "list.list",
-          "homepage": "https://github.com/nycoagung/dns-list",
-          "licence": "GPL-3.0"
         }
       ]
     }

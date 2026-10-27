@@ -2,9 +2,11 @@
 import contextlib
 import copy
 import datetime
+import fnmatch
 import io
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -503,10 +505,12 @@ class RepositoryTest(unittest.TestCase):
         with open(os.path.join(REPO, '.github', 'workflows', 'build.yml'), encoding='utf-8') as fh:
             workflow = fh.read()
         push = workflow.split('push:', 1)[1].split('schedule:', 1)[0] if 'push:' in workflow else ''
+        patterns = re.findall(r"'([^']+)'", push.split('paths:', 1)[1].splitlines()[0]) if 'paths:' in push else []
         watched = {'build.py', 'sources.json'} | {src['path'] for meta in self.config['categories'].values()
                                                   for src in meta['sources'] if 'path' in src}
         for path in sorted(watched):
-            self.assertIn(f"'{path}'", push, f'a push changing {path} should start a build')
+            self.assertTrue(any(fnmatch.fnmatch(path, p) for p in patterns),
+                            f'a push changing {path} should start a build (paths: {patterns})')
 
     def test_readme_gives_the_address_of_every_built_file(self):
         with open(os.path.join(REPO, 'README.md'), encoding='utf-8') as fh:
@@ -514,6 +518,14 @@ class RepositoryTest(unittest.TestCase):
         for category, meta in self.config['categories'].items():
             for name in build.file_names(category, meta['parts']):
                 self.assertIn(f'https://raw.githubusercontent.com/nycoagung/dns-list/lists/{name}', readme)
+
+    def test_readme_gives_no_address_that_is_not_built(self):
+        with open(os.path.join(REPO, 'README.md'), encoding='utf-8') as fh:
+            readme = fh.read()
+        built = {name for category, meta in self.config['categories'].items()
+                 for name in build.file_names(category, meta['parts'])}
+        listed = set(re.findall(r'https://raw\.githubusercontent\.com/nycoagung/dns-list/lists/([\w.-]+)', readme))
+        self.assertEqual(listed - built, set())
 
 
 class MainTest(unittest.TestCase):

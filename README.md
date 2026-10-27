@@ -1,9 +1,9 @@
 # dns-list
 
 DNS blocklists for [Pi-hole](https://pi-hole.net), one list per category. Each list merges
-well-known public blocklists (see [SOURCES.md](SOURCES.md)), or one of the hand-made lists
-in this repository, with duplicates removed. A GitHub Action rebuilds them every Saturday,
-and within minutes of a change to the hand-made lists or the sources.
+well-known public blocklists (see [SOURCES.md](SOURCES.md)) and, for a few categories, a
+hand-made list from this repository, with duplicates removed. A GitHub Action rebuilds them
+every Saturday, and within minutes of a change to the hand-made lists or the sources.
 
 ## The lists
 
@@ -14,13 +14,12 @@ and within minutes of a change to the hand-made lists or the sources.
 | porn | Adult content | `porn-1.txt` to `porn-4.txt` |
 | gambling | Gambling | `gambling-1.txt`, `gambling-2.txt` |
 | child-protection | Sites unsuitable for children: a mixed list (adult content, scams, drugs and more) | `child-protection.txt` |
-| social-media | Facebook, Instagram, TikTok, X (Twitter), Snapchat and WeChat | `social-media.txt` |
-| youtube | YouTube | `youtube.txt` |
+| social-media | Social networks, chat and forums: Facebook, Instagram, TikTok, X (Twitter), Snapchat, WeChat, Discord, Reddit, Pinterest and more | `social-media.txt` |
+| video | YouTube, Twitch and other video streaming, plus drama, anime and K-pop sites | `video.txt` |
 | gaming | Online games, game stores and launchers, and DNS and VPN services that get around blocking | `gaming.txt` |
 | dating | Dating services | `dating.txt` |
 | drugs | Drugs | `drugs.txt` |
 | hate-fakenews | Hate sites, junk sites and fake news | `hate-fakenews.txt` |
-| custom | Hand-picked sites | `custom.txt` |
 
 The three biggest lists are split into parts to stay under GitHub's file size limit.
 **Subscribe to every part** of a split list: a name in one part can be covered by an
@@ -45,12 +44,11 @@ https://raw.githubusercontent.com/nycoagung/dns-list/lists/gambling-1.txt
 https://raw.githubusercontent.com/nycoagung/dns-list/lists/gambling-2.txt
 https://raw.githubusercontent.com/nycoagung/dns-list/lists/child-protection.txt
 https://raw.githubusercontent.com/nycoagung/dns-list/lists/social-media.txt
-https://raw.githubusercontent.com/nycoagung/dns-list/lists/youtube.txt
+https://raw.githubusercontent.com/nycoagung/dns-list/lists/video.txt
 https://raw.githubusercontent.com/nycoagung/dns-list/lists/gaming.txt
 https://raw.githubusercontent.com/nycoagung/dns-list/lists/dating.txt
 https://raw.githubusercontent.com/nycoagung/dns-list/lists/drugs.txt
 https://raw.githubusercontent.com/nycoagung/dns-list/lists/hate-fakenews.txt
-https://raw.githubusercontent.com/nycoagung/dns-list/lists/custom.txt
 ```
 
 The [lists branch](https://github.com/nycoagung/dns-list/tree/lists) also has a README with
@@ -87,9 +85,11 @@ Locally, the same is `--accept-shrink malware,porn`.
 
 ## Hand-made lists
 
-`list.list`, `social-list.list` and `gaming-list.list` are edited by hand on the `master`
-branch. Each change starts a build, which puts it into the custom, social-media and gaming
-lists within minutes. They also stay available at their own addresses as before.
+The `hand-made` folder has one file per category for domains the public sources miss:
+`gaming.txt`, `social-media.txt` and `video.txt`. Add a domain on its own line (comments
+start with `#`) and commit it to `master`: the change starts a build, and the domain is in
+that category's list within minutes. For another category, create `hand-made/<category>.txt`
+and add it to that category's sources in `sources.json`.
 
 ## Changing the sources
 

@@ -86,23 +86,24 @@ Sites unsuitable for children: a mixed list (adult content, scams, drugs and mor
 
 ## social-media
 
-Facebook, Instagram, TikTok, X (Twitter), Snapchat and WeChat.
+Social networks, chat and forums: Facebook, Instagram, TikTok, X (Twitter), Snapchat, WeChat, Discord, Reddit, Pinterest and more.
 
 | Source | Licence |
 |---|---|
-| [social-list.list](social-list.list) | GPL-3.0 |
+| [hand-made/social-media.txt](hand-made/social-media.txt) | GPL-3.0 |
 | [anudeepND Facebook](https://github.com/anudeepND/blacklist) ([list](https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt)) | MIT |
 | [The Block List Project: TikTok](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/tiktok.txt)) | MIT |
 | [The Block List Project: Facebook](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/facebook.txt)) | MIT |
 | [The Block List Project: Twitter](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/twitter.txt)) | MIT |
 
-## youtube
+## video
 
-YouTube.
+YouTube, Twitch and other video streaming, plus drama, anime and K-pop sites.
 
 | Source | Licence |
 |---|---|
 | [The Block List Project: YouTube](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/youtube.txt)) | Unlicense |
+| [hand-made/video.txt](hand-made/video.txt) | GPL-3.0 |
 
 ## gaming
 
@@ -110,7 +111,7 @@ Online games, game stores and launchers, and DNS and VPN services that get aroun
 
 | Source | Licence |
 |---|---|
-| [gaming-list.list](gaming-list.list) | GPL-3.0 |
+| [hand-made/gaming.txt](hand-made/gaming.txt) | GPL-3.0 |
 
 ## dating
 
@@ -136,11 +137,3 @@ Hate sites, junk sites and fake news.
 |---|---|
 | [Lightswitch05 hate and junk (extended)](https://github.com/lightswitch05/hosts) ([list](https://www.github.developerdan.com/hosts/lists/hate-and-junk-extended.txt)) | Apache-2.0 |
 | [StevenBlack fake news extension](https://github.com/StevenBlack/hosts) ([list](https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/fakenews/hosts)) | MIT |
-
-## custom
-
-Hand-picked sites.
-
-| Source | Licence |
-|---|---|
-| [list.list](list.list) | GPL-3.0 |
