@@ -1,0 +1,430 @@
+{
+  "categories": {
+    "ads": {
+      "description": "Advertising, tracking and telemetry.",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "StevenBlack unified hosts",
+          "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+          "homepage": "https://github.com/StevenBlack/hosts",
+          "licence": "MIT"
+        },
+        {
+          "name": "Lightswitch05 ads and tracking (extended)",
+          "url": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt",
+          "homepage": "https://github.com/lightswitch05/hosts",
+          "licence": "Apache-2.0"
+        },
+        {
+          "name": "AdGuard DNS filter (firebog mirror)",
+          "url": "https://v.firebog.net/hosts/AdguardDNS.txt",
+          "homepage": "https://github.com/AdguardTeam/AdGuardSDNSFilter",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "einyx game telemetry",
+          "url": "https://raw.githubusercontent.com/einyx/pfsense-pihole-blocklist/master/gaming.txt",
+          "homepage": "https://github.com/einyx/pfsense-pihole-blocklist",
+          "licence": "not stated"
+        },
+        {
+          "name": "The Block List Project: ads",
+          "url": "https://blocklistproject.github.io/Lists/ads.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "Unlicense"
+        },
+        {
+          "name": "The Block List Project: tracking",
+          "url": "https://blocklistproject.github.io/Lists/tracking.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        },
+        {
+          "name": "UT1 advertising (firebog mirror)",
+          "url": "https://v.firebog.net/hosts/Prigent-Ads.txt",
+          "homepage": "https://dsi.ut-capitole.fr/blacklists/",
+          "licence": "CC BY-SA 4.0"
+        },
+        {
+          "name": "culi831 complete ads block",
+          "url": "https://raw.githubusercontent.com/culi831/Pihole-block-list/refs/heads/culi831/Blocklist-2.txt",
+          "homepage": "https://github.com/culi831/Pihole-block-list",
+          "licence": "MIT"
+        },
+        {
+          "name": "NEO DEV HOST",
+          "url": "https://raw.githubusercontent.com/neodevpro/neodevhost/master/host",
+          "homepage": "https://github.com/neodevpro/neodevhost",
+          "licence": "MIT"
+        },
+        {
+          "name": "HaGeZi Multi PRO++",
+          "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt",
+          "homepage": "https://github.com/hagezi/dns-blocklists",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "oisd big",
+          "url": "https://big.oisd.nl",
+          "homepage": "https://oisd.nl",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "RPiList EasyList",
+          "url": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/easylist",
+          "homepage": "https://github.com/RPiList/specials",
+          "licence": "not stated"
+        },
+        {
+          "name": "Frogeye first-party trackers",
+          "url": "https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt",
+          "homepage": "https://hostfiles.frogeye.fr/",
+          "licence": "MIT"
+        },
+        {
+          "name": "Perflyst and Dandelion Sprout Smart-TV blocklist",
+          "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_7.txt",
+          "homepage": "https://github.com/Perflyst/PiHoleBlocklist",
+          "licence": "MIT"
+        }
+      ]
+    },
+    "malware": {
+      "description": "Malware, phishing, scams, fraud, spam and cryptojacking.",
+      "parts": 4,
+      "sources": [
+        {
+          "name": "Dandelion Sprout anti-malware hosts",
+          "url": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt",
+          "homepage": "https://github.com/DandelionSprout/adfilt",
+          "licence": "Dandelicence"
+        },
+        {
+          "name": "Disconnect malvertising",
+          "url": "https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt",
+          "homepage": "https://disconnect.me",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "UT1 cryptojacking (firebog mirror)",
+          "url": "https://v.firebog.net/hosts/Prigent-Crypto.txt",
+          "homepage": "https://dsi.ut-capitole.fr/blacklists/",
+          "licence": "CC BY-SA 4.0"
+        },
+        {
+          "name": "Mandiant APT1 report, appendix D",
+          "url": "https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt",
+          "homepage": "https://bitbucket.org/ethanr/dns-blacklists",
+          "licence": "not stated"
+        },
+        {
+          "name": "Phishing Army (extended)",
+          "url": "https://phishing.army/download/phishing_army_blocklist_extended.txt",
+          "homepage": "https://phishing.army",
+          "licence": "Phishing Army terms (phishing.army/license)"
+        },
+        {
+          "name": "NoTrack malware",
+          "url": "https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt",
+          "homepage": "https://gitlab.com/quidsup/notrack-blocklists",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "KADhosts",
+          "url": "https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt",
+          "homepage": "https://github.com/FiltersHeroes/KADhosts",
+          "licence": "CC BY-SA 4.0"
+        },
+        {
+          "name": "WaLLy3K w3kbl",
+          "url": "https://v.firebog.net/hosts/static/w3kbl.txt",
+          "homepage": "https://firebog.net",
+          "licence": "CC BY 4.0"
+        },
+        {
+          "name": "malware-filter phishing hosts",
+          "url": "https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt",
+          "homepage": "https://gitlab.com/malware-filter/phishing-filter",
+          "licence": "CC BY-SA 4.0"
+        },
+        {
+          "name": "RPiList spam mails",
+          "url": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails",
+          "homepage": "https://github.com/RPiList/specials",
+          "licence": "not stated"
+        },
+        {
+          "name": "The Block List Project: fraud",
+          "url": "https://blocklistproject.github.io/Lists/fraud.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "Unlicense"
+        },
+        {
+          "name": "The Block List Project: malware",
+          "url": "https://blocklistproject.github.io/Lists/malware.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        },
+        {
+          "name": "The Block List Project: phishing",
+          "url": "https://blocklistproject.github.io/Lists/phishing.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        },
+        {
+          "name": "The Block List Project: scam",
+          "url": "https://blocklistproject.github.io/Lists/scam.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        },
+        {
+          "name": "Matomo referrer spam",
+          "url": "https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt",
+          "homepage": "https://github.com/matomo-org/referrer-spam-list",
+          "licence": "Public domain"
+        },
+        {
+          "name": "Dan Pollock's hosts",
+          "url": "https://someonewhocares.org/hosts/zero/hosts",
+          "homepage": "https://someonewhocares.org/hosts/",
+          "licence": "Non-commercial use, with attribution"
+        },
+        {
+          "name": "UT1 malware (firebog mirror)",
+          "url": "https://v.firebog.net/hosts/Prigent-Malware.txt",
+          "homepage": "https://dsi.ut-capitole.fr/blacklists/",
+          "licence": "CC BY-SA 4.0"
+        },
+        {
+          "name": "The Block List Project: abuse",
+          "url": "https://blocklistproject.github.io/Lists/abuse.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        },
+        {
+          "name": "The Block List Project: crypto",
+          "url": "https://blocklistproject.github.io/Lists/crypto.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "Unlicense"
+        },
+        {
+          "name": "ZeroDot1 CoinBlockerLists (mirror)",
+          "url": "https://raw.githubusercontent.com/c11umw/adblock/refs/heads/main/zerodot1.CoinBlockerLists",
+          "homepage": "https://gitlab.com/ZeroDot1/CoinBlockerLists",
+          "licence": "not stated"
+        },
+        {
+          "name": "HaGeZi most abused TLDs",
+          "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/spam-tlds-adblock.txt",
+          "homepage": "https://github.com/hagezi/dns-blocklists",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "HaGeZi badware hosters",
+          "url": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/hoster.txt",
+          "homepage": "https://github.com/hagezi/dns-blocklists",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "HaGeZi Threat Intelligence Feeds",
+          "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt",
+          "homepage": "https://github.com/hagezi/dns-blocklists",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "uBlock Origin badware risks",
+          "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt",
+          "homepage": "https://github.com/uBlockOrigin/uAssets",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "RPiList malware",
+          "url": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
+          "homepage": "https://github.com/RPiList/specials",
+          "licence": "not stated"
+        }
+      ]
+    },
+    "porn": {
+      "description": "Adult content.",
+      "parts": 4,
+      "sources": [
+        {
+          "name": "chadmayfield porn (all)",
+          "url": "https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list",
+          "homepage": "https://github.com/chadmayfield/my-pihole-blocklists",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "chadmayfield porn (top 1M sites)",
+          "url": "https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list",
+          "homepage": "https://github.com/chadmayfield/my-pihole-blocklists",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "UT1 adult (firebog mirror)",
+          "url": "https://v.firebog.net/hosts/Prigent-Adult.txt",
+          "homepage": "https://dsi.ut-capitole.fr/blacklists/",
+          "licence": "CC BY-SA 4.0"
+        },
+        {
+          "name": "The Block List Project: porn",
+          "url": "https://blocklistproject.github.io/Lists/porn.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        }
+      ]
+    },
+    "gambling": {
+      "description": "Gambling.",
+      "parts": 2,
+      "sources": [
+        {
+          "name": "RPiList gambling",
+          "url": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling",
+          "homepage": "https://github.com/RPiList/specials",
+          "licence": "not stated"
+        },
+        {
+          "name": "The Block List Project: gambling",
+          "url": "https://blocklistproject.github.io/Lists/gambling.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "Unlicense"
+        },
+        {
+          "name": "HaGeZi gambling",
+          "url": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/gambling.txt",
+          "homepage": "https://github.com/hagezi/dns-blocklists",
+          "licence": "GPL-3.0"
+        }
+      ]
+    },
+    "child-protection": {
+      "description": "Sites unsuitable for children: a mixed list (adult content, scams, drugs and more).",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "RPiList child protection",
+          "url": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/child-protection",
+          "homepage": "https://github.com/RPiList/specials",
+          "licence": "not stated"
+        }
+      ]
+    },
+    "social-media": {
+      "description": "Facebook, Instagram, TikTok, X (Twitter), Snapchat and WeChat.",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "social-list.list",
+          "path": "social-list.list",
+          "homepage": "https://github.com/nycoagung/dns-list",
+          "licence": "GPL-3.0"
+        },
+        {
+          "name": "anudeepND Facebook",
+          "url": "https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt",
+          "homepage": "https://github.com/anudeepND/blacklist",
+          "licence": "MIT"
+        },
+        {
+          "name": "The Block List Project: TikTok",
+          "url": "https://blocklistproject.github.io/Lists/tiktok.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        },
+        {
+          "name": "The Block List Project: Facebook",
+          "url": "https://blocklistproject.github.io/Lists/facebook.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        },
+        {
+          "name": "The Block List Project: Twitter",
+          "url": "https://blocklistproject.github.io/Lists/twitter.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        }
+      ]
+    },
+    "youtube": {
+      "description": "YouTube.",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "The Block List Project: YouTube",
+          "url": "https://blocklistproject.github.io/Lists/youtube.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "Unlicense"
+        }
+      ]
+    },
+    "gaming": {
+      "description": "Online games, game stores and launchers, and DNS and VPN services that get around blocking.",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "gaming-list.list",
+          "path": "gaming-list.list",
+          "homepage": "https://github.com/nycoagung/dns-list",
+          "licence": "GPL-3.0"
+        }
+      ]
+    },
+    "dating": {
+      "description": "Dating services.",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "Lightswitch05 dating services (extended)",
+          "url": "https://www.github.developerdan.com/hosts/lists/dating-services-extended.txt",
+          "homepage": "https://github.com/lightswitch05/hosts",
+          "licence": "Apache-2.0"
+        }
+      ]
+    },
+    "drugs": {
+      "description": "Drugs.",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "The Block List Project: drugs",
+          "url": "https://blocklistproject.github.io/Lists/drugs.txt",
+          "homepage": "https://github.com/blocklistproject/Lists",
+          "licence": "MIT"
+        }
+      ]
+    },
+    "hate-fakenews": {
+      "description": "Hate sites, junk sites and fake news.",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "Lightswitch05 hate and junk (extended)",
+          "url": "https://www.github.developerdan.com/hosts/lists/hate-and-junk-extended.txt",
+          "homepage": "https://github.com/lightswitch05/hosts",
+          "licence": "Apache-2.0"
+        },
+        {
+          "name": "StevenBlack fake news extension",
+          "url": "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/fakenews/hosts",
+          "homepage": "https://github.com/StevenBlack/hosts",
+          "licence": "MIT"
+        }
+      ]
+    },
+    "custom": {
+      "description": "Hand-picked sites.",
+      "parts": 1,
+      "sources": [
+        {
+          "name": "list.list",
+          "path": "list.list",
+          "homepage": "https://github.com/nycoagung/dns-list",
+          "licence": "GPL-3.0"
+        }
+      ]
+    }
+  }
+}

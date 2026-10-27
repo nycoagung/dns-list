@@ -1,0 +1,78 @@
+name: Build lists
+
+on:
+  # Rebuild as soon as a hand-made list or the sources change, so an edit does not wait for Saturday.
+  push:
+    branches: [master]
+    paths: ['list.list', 'social-list.list', 'gaming-list.list', 'sources.json', 'build.py']
+  schedule:
+    - cron: '17 5 * * 6'  # Saturdays 05:17 UTC, ahead of Pi-hole's weekly list update on Sunday
+  workflow_dispatch:
+    inputs:
+      accept_shrink:
+        description: 'Categories allowed to shrink in this build, comma-separated (see the README)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-lists
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Test
+        run: python3 -m unittest discover -s tests -v
+
+      # A category that fails keeps its last published files, so read them first. No branch
+      # yet (git ls-remote exits 2) means the first build; any other failure stops the run.
+      - name: Fetch the last published lists
+        run: |
+          mkdir previous
+          found=0
+          git ls-remote --exit-code origin refs/heads/lists > /dev/null || found=$?
+          if [ "$found" -eq 0 ]; then
+            git fetch --depth=1 origin lists
+            git archive FETCH_HEAD | tar -x -C previous
+          elif [ "$found" -ne 2 ]; then
+            echo "Could not read the lists branch"
+            exit 1
+          fi
+
+      - name: Build
+        id: build
+        env:
+          ACCEPT_SHRINK: ${{ inputs.accept_shrink }}
+        run: |
+          code=0
+          python3 build.py build --out out --previous previous --accept-shrink "$ACCEPT_SHRINK" || code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+
+      # The branch holds one commit, replaced each week, so the repository does not grow.
+      - name: Publish to the lists branch
+        if: steps.build.outputs.code == '0' || steps.build.outputs.code == '2'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd out
+          git init -q -b lists
+          git add -A
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              commit -q -m "Lists built $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" lists
+
+      # A failed scheduled run is emailed to whoever last changed the cron line above.
+      - name: Fail when a list was kept back or is missing
+        if: steps.build.outputs.code != '0'
+        run: |
+          echo "build.py exited with ${{ steps.build.outputs.code }}: see the Build step, and the README on the lists branch"
+          exit 1
