@@ -200,9 +200,9 @@ class WriteTest(unittest.TestCase):
             self.assertEqual(f['entries'], len(e) + len(a))
 
 
-def source(name, url=None, path=None):
+def source(name, url=None, domains=None):
     entry = {'name': name, 'homepage': 'https://example.org/' + name, 'licence': 'MIT'}
-    entry.update({'url': url} if url else {'path': path})
+    entry.update({'url': url} if url else {'domains': domains})
     return entry
 
 
@@ -210,7 +210,8 @@ CONFIG = {'categories': {
     'ads': {'description': 'Ads', 'parts': 1, 'sources': [source('A', url='https://a.example/list'),
                                                           source('B', url='https://b.example/list')]},
     'porn': {'description': 'Adult', 'parts': 2, 'sources': [source('C', url='https://c.example/list')]},
-    'custom': {'description': 'Hand-made', 'parts': 1, 'sources': [source('list.list', path='list.list')]},
+    'custom': {'description': 'Hand-made', 'parts': 1, 'sources': [
+        source('Mine', domains=['forum.example', 'video.example', 'chat.example'])]},
 }}
 PAGES = {
     'https://a.example/list': '0.0.0.0 ads.example.com\n0.0.0.0 track.example.com\n',
@@ -247,18 +248,32 @@ class ConfigTest(unittest.TestCase):
             del config['categories']['ads']['sources'][0][field]
             self.assertRefused(config, field)
 
-    def test_a_source_has_a_url_or_a_path_not_both(self):
+    def test_a_source_has_a_url_or_domains_not_both(self):
         config = copy.deepcopy(CONFIG)
-        config['categories']['ads']['sources'][0]['path'] = 'list.list'
-        self.assertRefused(config, 'url or a path')
+        config['categories']['ads']['sources'][0]['domains'] = ['a.example.com']
+        self.assertRefused(config, 'url or domains')
+        config = copy.deepcopy(CONFIG)
+        del config['categories']['ads']['sources'][0]['url']
+        self.assertRefused(config, 'url or domains')
 
-    def test_urls_must_be_https_and_paths_must_stay_in_the_repository(self):
+    def test_urls_must_be_https(self):
         config = copy.deepcopy(CONFIG)
         config['categories']['ads']['sources'][0]['url'] = 'http://a.example/list'
         self.assertRefused(config, 'https')
+
+    def test_hand_made_domains_must_be_names_pi_hole_accepts(self):
         config = copy.deepcopy(CONFIG)
-        config['categories']['custom']['sources'][0]['path'] = '../secrets'
-        self.assertRefused(config, 'inside the repository')
+        config['categories']['custom']['sources'][0]['domains'] = ['forum.example', 'forum']
+        self.assertRefused(config, '"forum"')
+        for bad in (['a.example b.example'], [], ['ok.example', 7], 'forum.example'):
+            config = copy.deepcopy(CONFIG)
+            config['categories']['custom']['sources'][0]['domains'] = bad
+            self.assertRefused(config, 'domains')
+
+    def test_hand_made_domains_may_also_block_subdomains(self):
+        config = copy.deepcopy(CONFIG)
+        config['categories']['custom']['sources'][0]['domains'] = ['forum.example', '||video.example^']
+        build.check_config(config)
 
     def test_a_source_may_be_listed_only_once(self):
         config = copy.deepcopy(CONFIG)
@@ -284,10 +299,6 @@ class BuildTest(unittest.TestCase):
     def setUp(self):
         self.root = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, self.root)
-        self.repo = os.path.join(self.root, 'repo')
-        os.mkdir(self.repo)
-        with open(os.path.join(self.repo, 'list.list'), 'w') as fh:
-            fh.write('# hand-made\nforum.example\nvideo.example\nchat.example\n')
 
     def run_build(self, out, pages=PAGES, previous=None, config=CONFIG, now=FIRST, accept_shrink=()):
         def fetch(url, dest):
@@ -298,7 +309,7 @@ class BuildTest(unittest.TestCase):
                 fh.write(body)
         return build.build(config, os.path.join(self.root, out),
                            previous_dir=previous and os.path.join(self.root, previous),
-                           fetch=fetch, repo_dir=self.repo, now=now, accept_shrink=accept_shrink)
+                           fetch=fetch, now=now, accept_shrink=accept_shrink)
 
     def read(self, out, name):
         with open(os.path.join(self.root, out, name), encoding='utf-8') as fh:
@@ -418,9 +429,9 @@ class BuildTest(unittest.TestCase):
 
     def test_hand_made_lists_may_shrink_freely(self):
         self.run_build('prev')
-        with open(os.path.join(self.repo, 'list.list'), 'w') as fh:
-            fh.write('forum.example\n')
-        stats = self.run_build('out', previous='prev', now=SECOND)
+        config = copy.deepcopy(CONFIG)
+        config['categories']['custom']['sources'][0]['domains'] = ['forum.example']
+        stats = self.run_build('out', previous='prev', config=config, now=SECOND)
         self.assertEqual(stats['categories']['custom']['status'], 'updated')
         self.assertEqual(stats['categories']['custom']['entries'], 1)
 
@@ -476,7 +487,7 @@ class SourcesMarkdownTest(unittest.TestCase):
         for heading in ('## ads', '## porn', '## custom'):
             self.assertIn(heading, text)
         self.assertIn('| [A](https://example.org/A) ([list](https://a.example/list)) | MIT |', text)
-        self.assertIn('| [list.list](list.list) | MIT |', text)
+        self.assertIn('| [Mine](https://example.org/Mine) (3 domains listed in sources.json) | MIT |', text)
 
     def test_the_merged_lists_are_not_relicensed(self):
         text = build.render_sources_md(CONFIG)
@@ -490,25 +501,17 @@ class RepositoryTest(unittest.TestCase):
     def setUp(self):
         self.config = build.load_config(os.path.join(REPO, 'sources.json'))
 
-    def test_hand_made_sources_exist(self):
-        for meta in self.config['categories'].values():
-            for src in meta['sources']:
-                if 'path' in src:
-                    self.assertTrue(os.path.isfile(os.path.join(REPO, src['path'])), src['path'])
-
     def test_sources_md_is_up_to_date(self):
         with open(os.path.join(REPO, 'SOURCES.md'), encoding='utf-8') as fh:
             self.assertEqual(fh.read(), build.render_sources_md(self.config),
                              'run: python3 build.py sources-md > SOURCES.md')
 
-    def test_editing_a_hand_made_list_rebuilds_the_lists(self):
+    def test_changing_the_sources_rebuilds_the_lists(self):
         with open(os.path.join(REPO, '.github', 'workflows', 'build.yml'), encoding='utf-8') as fh:
             workflow = fh.read()
         push = workflow.split('push:', 1)[1].split('schedule:', 1)[0] if 'push:' in workflow else ''
         patterns = re.findall(r"'([^']+)'", push.split('paths:', 1)[1].splitlines()[0]) if 'paths:' in push else []
-        watched = {'build.py', 'sources.json'} | {src['path'] for meta in self.config['categories'].values()
-                                                  for src in meta['sources'] if 'path' in src}
-        for path in sorted(watched):
+        for path in ('build.py', 'sources.json'):
             self.assertTrue(any(fnmatch.fnmatch(path, p) for p in patterns),
                             f'a push changing {path} should start a build (paths: {patterns})')
 
@@ -533,11 +536,9 @@ class MainTest(unittest.TestCase):
     def setUp(self):
         self.root = tempfile.mkdtemp()
         self.addCleanup(shutil.rmtree, self.root)
-        with open(os.path.join(self.root, 'mine.list'), 'w') as fh:
-            fh.write('forum.example\n')
         self.sources = os.path.join(self.root, 'sources.json')
         self.write_sources({'categories': {'custom': {'description': 'Hand-made', 'parts': 1,
-                                                      'sources': [source('mine', path='mine.list')]}}})
+                                                      'sources': [source('mine', domains=['forum.example'])]}}})
 
     def write_sources(self, config):
         with open(self.sources, 'w') as fh:

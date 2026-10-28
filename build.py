@@ -182,16 +182,27 @@ def check_config(config):
                 if not isinstance(src.get(field), str) or not src[field].strip():
                     raise ValueError(f'{category}: a source has no {field}')
             label = f'{category}/{src["name"]}'
-            if ('url' in src) == ('path' in src):
-                raise ValueError(f'{label}: give a url or a path, not both')
-            where = str(src.get('url') or src.get('path'))
-            if 'url' in src and not where.startswith('https://'):
+            if ('url' in src) == ('domains' in src):
+                raise ValueError(f'{label}: give a url or domains, not both')
+            if 'domains' in src:
+                check_domains(label, src['domains'])
+                continue
+            url = str(src['url'])
+            if not url.startswith('https://'):
                 raise ValueError(f'{label}: the url must start with https://')
-            if 'path' in src and (os.path.isabs(where) or '..' in where.replace('\\', '/').split('/')):
-                raise ValueError(f'{label}: the path must stay inside the repository')
-            if where in seen:
-                raise ValueError(f'{label}: {where} is listed more than once')
-            seen.add(where)
+            if url in seen:
+                raise ValueError(f'{label}: {url} is listed more than once')
+            seen.add(url)
+
+
+def check_domains(label, domains):
+    """A hand-made source's domains: each one name Pi-hole accepts, plain or ||name^."""
+    if not isinstance(domains, list) or not domains:
+        raise ValueError(f'{label}: domains must be a list of at least one name')
+    for domain in domains:
+        found = parse_lines([domain + '\n']) if isinstance(domain, str) else (set(), set())
+        if len(found[0]) + len(found[1]) != 1:
+            raise ValueError(f'{label}: "{domain}" in domains is not one name Pi-hole accepts')
 
 
 def load_config(path):
@@ -221,7 +232,7 @@ def download(url, dest, attempts=3):
         time.sleep(30 * attempt)
 
 
-def build_category(category, meta, out_dir, previous_dir, previous, fetch, repo_dir, tmp, updated, accept):
+def build_category(category, meta, out_dir, previous_dir, previous, fetch, tmp, updated, accept):
     """Merge one category's sources into out_dir, or fall back to its previous files.
     Each source's count is recorded so the next build can compare with it; a source
     that fails keeps its last good count. accept lets this build shrink the category."""
@@ -229,17 +240,17 @@ def build_category(category, meta, out_dir, previous_dir, previous, fetch, repo_
     hint = f'if that is expected, build with --accept-shrink {category}'
     last_counts = {s.get('source'): s.get('entries') for s in (previous or {}).get('sources', [])}
     for src in meta['sources']:
-        where = src.get('url') or src['path']
+        where = src.get('url') or f"sources.json: {src['name']}"
         last = last_counts.get(where)
         try:
-            if 'path' in src:
-                path = os.path.join(repo_dir, src['path'])
+            if 'domains' in src:
+                found_exact, found_abp = parse_lines(domain + '\n' for domain in src['domains'])
             else:
                 path = os.path.join(tmp, 'download')
                 fetch(src['url'], path)
-            # lines end at '\n' only, as in Pi-hole: a lone '\r' stays inside its line
-            with open(path, encoding='utf-8', errors='replace', newline='\n') as fh:
-                found_exact, found_abp = parse_lines(fh)
+                # lines end at '\n' only, as in Pi-hole: a lone '\r' stays inside its line
+                with open(path, encoding='utf-8', errors='replace', newline='\n') as fh:
+                    found_exact, found_abp = parse_lines(fh)
             count = len(found_exact) + len(found_abp)
             if not count:
                 raise SourceError('no usable entries')
@@ -255,7 +266,7 @@ def build_category(category, meta, out_dir, previous_dir, previous, fetch, repo_
     if not problems:
         exact, abp = prune(exact, abp)
         total = len(exact) + len(abp)
-        hand_made = all('path' in src for src in meta['sources'])
+        hand_made = all('domains' in src for src in meta['sources'])
         if previous and not hand_made and not accept and total < (1 - MAX_SHRINK) * previous.get('entries', 0):
             problems.append(f"shrank from {previous['entries']:,} to {total:,} entries; {hint}")
         else:
@@ -279,7 +290,7 @@ def build_category(category, meta, out_dir, previous_dir, previous, fetch, repo_
             'problems': problems}
 
 
-def build(config, out_dir, previous_dir=None, fetch=None, repo_dir=HERE, now=None, accept_shrink=()):
+def build(config, out_dir, previous_dir=None, fetch=None, now=None, accept_shrink=()):
     """Build every category into out_dir and return the run's stats, also written to
     stats.json and README.md. A category with a failed source (one that cannot be read,
     has no usable entries, or lost more than MAX_SOURCE_DROP of its entries), a shrink
@@ -300,7 +311,7 @@ def build(config, out_dir, previous_dir=None, fetch=None, repo_dir=HERE, now=Non
         for category, meta in config['categories'].items():
             stats['categories'][category] = build_category(
                 category, meta, out_dir, previous_dir, previous.get(category), fetch or download,
-                repo_dir, tmp, updated, category in accept_shrink)
+                tmp, updated, category in accept_shrink)
     with open(os.path.join(out_dir, 'stats.json'), 'w', encoding='utf-8') as fh:
         json.dump(stats, fh, indent=1, ensure_ascii=False)
         fh.write('\n')
@@ -335,7 +346,7 @@ def render_sources_md(config):
     lines = ['# Sources', '',
              'Each merged list is a compilation of the sources below, and its entries keep the licences of the '
              'sources they come from: some allow only non-commercial use, and some state no licence at all. '
-             'The code and the hand-made lists in this repository are under the GPL-3.0 (see LICENSE). '
+             'The code and the hand-made domains in sources.json are under the GPL-3.0 (see LICENSE). '
              'This file is made from `sources.json` by `python3 build.py sources-md`.', '']
     for category, meta in config['categories'].items():
         lines += [f'## {category}', '', meta['description'], '', '| Source | Licence |', '|---|---|']
@@ -343,7 +354,8 @@ def render_sources_md(config):
             if 'url' in src:
                 lines.append(f"| [{src['name']}]({src['homepage']}) ([list]({src['url']})) | {src['licence']} |")
             else:
-                lines.append(f"| [{src['name']}]({src['path']}) | {src['licence']} |")
+                lines.append(f"| [{src['name']}]({src['homepage']}) ({len(src['domains'])} domains listed in "
+                             f"sources.json) | {src['licence']} |")
         lines.append('')
     return '\n'.join(lines)
 
@@ -351,7 +363,7 @@ def render_sources_md(config):
 def main(argv=None):
     parser = argparse.ArgumentParser(description='Merge public DNS blocklists into one list per category.')
     parser.add_argument('--sources', default=os.path.join(HERE, 'sources.json'),
-                        help='the sources file; hand-made lists are read next to it (default: %(default)s)')
+                        help='the sources file (default: %(default)s)')
     commands = parser.add_subparsers(dest='command', required=True)
     run = commands.add_parser('build', help='build every category')
     run.add_argument('--out', required=True, help='directory to write the lists to')
@@ -373,8 +385,7 @@ def main(argv=None):
     if unknown:
         print(f"--accept-shrink: no such category: {', '.join(unknown)}", file=sys.stderr)
         return 1
-    stats = build(config, args.out, args.previous, repo_dir=os.path.dirname(os.path.abspath(args.sources)),
-                  accept_shrink=accept)
+    stats = build(config, args.out, args.previous, accept_shrink=accept)
     for category, st in stats['categories'].items():
         print(f"{category:18} {st['status']:8} {st['entries']:>11,}")
         for problem in st['problems']:

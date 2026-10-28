@@ -1,9 +1,9 @@
 # dns-list
 
 DNS blocklists for [Pi-hole](https://pi-hole.net), one list per category. Each list merges
-well-known public blocklists (see [SOURCES.md](SOURCES.md)) and, for a few categories, a
-hand-made list from this repository, with duplicates removed. A GitHub Action rebuilds them
-every Saturday, and within minutes of a change to the hand-made lists or the sources.
+well-known public blocklists (see [SOURCES.md](SOURCES.md)) and, for a few categories,
+domains added by hand in `sources.json`, with duplicates removed. A GitHub Action rebuilds
+them every Saturday, and within minutes of a change to the sources.
 
 ## The lists
 
@@ -76,25 +76,31 @@ the Actions tab.
 replaced by a broken one. This happens when one of its sources cannot be downloaded, has no
 usable entries, or has lost more than half its entries since the last build; when the
 category as a whole shrinks by more than 20%; or when a file would pass GitHub's size limit.
-Hand-made lists may shrink freely. The run is then marked as failed, GitHub sends an email,
+Hand-made domains may shrink freely. The run is then marked as failed, GitHub sends an email,
 and the README on the lists branch says what went wrong.
 
 If a shrink is genuine (a source pruned dead domains, say), start the workflow by hand from
 the Actions tab and put the category names in **accept_shrink**, separated by commas.
 Locally, the same is `--accept-shrink malware,porn`.
 
-## Hand-made lists
+## Hand-made domains
 
-The `hand-made` folder has one file per category for domains the public sources miss:
-`gaming.txt`, `social-media.txt` and `video.txt`. Add a domain on its own line (comments
-start with `#`) and commit it to `master`: the change starts a build, and the domain is in
-that category's list within minutes. For another category, create `hand-made/<category>.txt`
-and add it to that category's sources in `sources.json`.
+Domains the public sources miss are listed by hand in `sources.json`, in a source with a
+`domains` list instead of a `url`: gaming, social-media and video have one each. Add a
+domain to the list and commit it to `master`: the change starts a build, and the domain is
+in that category's list within minutes. Each entry is one name, written as a list line
+would be: `example.com` blocks only that name, and `||example.com^` blocks it and every
+subdomain. The tests refuse anything Pi-hole would not accept, so a typo cannot slip in.
+
+The gaming domains leave out `nintendo.*` on purpose: it collides with the
+`accounts.nintendo.com` allow rules that Nintendo consoles need. A list cannot hold
+patterns, so "unblocked games" mirror sites need regex deny rules in Pi-hole itself:
+`unblocked`, `tyrone`, `freegames?[0-9]` and `gamesfree`.
 
 ## Changing the sources
 
-Edit `sources.json`. Each source needs a name, a `url` (or the `path` of a file in this
-repository), a homepage and its licence; `parts` sets how many files a category is split
+Edit `sources.json`. Each source needs a name, a `url` (or a `domains` list of hand-made
+entries), a homepage and its licence; `parts` sets how many files a category is split
 into. Renaming or removing a category, or changing its `parts`, changes the file names, so
 update the Pi-hole subscriptions to match. Then:
 
@@ -106,7 +112,7 @@ python3 build.py build --out out
 
 ## Licence
 
-The code and the hand-made lists are under the GPL-3.0 ([LICENSE](LICENSE)). The merged
+The code and the hand-made domains are under the GPL-3.0 ([LICENSE](LICENSE)). The merged
 lists are compilations of the sources in [SOURCES.md](SOURCES.md), and their entries keep
 the licences of the sources they come from: some allow only non-commercial use, and some
 state no licence at all.

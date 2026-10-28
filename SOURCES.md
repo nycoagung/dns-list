@@ -1,6 +1,6 @@
 # Sources
 
-Each merged list is a compilation of the sources below, and its entries keep the licences of the sources they come from: some allow only non-commercial use, and some state no licence at all. The code and the hand-made lists in this repository are under the GPL-3.0 (see LICENSE). This file is made from `sources.json` by `python3 build.py sources-md`.
+Each merged list is a compilation of the sources below, and its entries keep the licences of the sources they come from: some allow only non-commercial use, and some state no licence at all. The code and the hand-made domains in sources.json are under the GPL-3.0 (see LICENSE). This file is made from `sources.json` by `python3 build.py sources-md`.
 
 ## ads
 
@@ -90,7 +90,7 @@ Social networks, chat and forums: Facebook, Instagram, TikTok, X (Twitter), Snap
 
 | Source | Licence |
 |---|---|
-| [hand-made/social-media.txt](hand-made/social-media.txt) | GPL-3.0 |
+| [Hand-made social-media domains](https://github.com/nycoagung/dns-list) (86 domains listed in sources.json) | GPL-3.0 |
 | [anudeepND Facebook](https://github.com/anudeepND/blacklist) ([list](https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt)) | MIT |
 | [The Block List Project: TikTok](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/tiktok.txt)) | MIT |
 | [The Block List Project: Facebook](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/facebook.txt)) | MIT |
@@ -103,7 +103,7 @@ YouTube, Twitch and other video streaming, plus drama, anime and K-pop sites.
 | Source | Licence |
 |---|---|
 | [The Block List Project: YouTube](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/youtube.txt)) | Unlicense |
-| [hand-made/video.txt](hand-made/video.txt) | GPL-3.0 |
+| [Hand-made video domains](https://github.com/nycoagung/dns-list) (22 domains listed in sources.json) | GPL-3.0 |
 
 ## gaming
 
@@ -111,7 +111,7 @@ Online games, game stores and launchers, and DNS and VPN services that get aroun
 
 | Source | Licence |
 |---|---|
-| [hand-made/gaming.txt](hand-made/gaming.txt) | GPL-3.0 |
+| [Hand-made gaming domains](https://github.com/nycoagung/dns-list) (164 domains listed in sources.json) | GPL-3.0 |
 
 ## dating
 

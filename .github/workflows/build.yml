@@ -1,10 +1,10 @@
 name: Build lists
 
 on:
-  # Rebuild as soon as a hand-made list or the sources change, so an edit does not wait for Saturday.
+  # Rebuild as soon as the sources (hand-made domains included) change, so an edit does not wait for Saturday.
   push:
     branches: [master]
-    paths: ['hand-made/**', 'sources.json', 'build.py']
+    paths: ['sources.json', 'build.py']
   schedule:
     - cron: '17 5 * * 6'  # Saturdays 05:17 UTC, ahead of Pi-hole's weekly list update on Sunday
   workflow_dispatch:
