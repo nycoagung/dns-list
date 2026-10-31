@@ -1,0 +1,559 @@
+{
+ "built": "2026-10-31 10:57 UTC",
+ "categories": {
+  "ads": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 943154,
+   "files": [
+    {
+     "name": "ads.txt",
+     "entries": 943154,
+     "bytes": 20664466
+    }
+   ],
+   "sources": [
+    {
+     "name": "StevenBlack unified hosts",
+     "source": "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+     "entries": 76737,
+     "error": null
+    },
+    {
+     "name": "Lightswitch05 ads and tracking (extended)",
+     "source": "https://www.github.developerdan.com/hosts/lists/ads-and-tracking-extended.txt",
+     "entries": 429286,
+     "error": null
+    },
+    {
+     "name": "AdGuard DNS filter (firebog mirror)",
+     "source": "https://v.firebog.net/hosts/AdguardDNS.txt",
+     "entries": 190478,
+     "error": null
+    },
+    {
+     "name": "einyx game telemetry",
+     "source": "https://raw.githubusercontent.com/einyx/pfsense-pihole-blocklist/master/gaming.txt",
+     "entries": 1118,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: ads",
+     "source": "https://blocklistproject.github.io/Lists/ads.txt",
+     "entries": 235901,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: tracking",
+     "source": "https://blocklistproject.github.io/Lists/tracking.txt",
+     "entries": 143876,
+     "error": null
+    },
+    {
+     "name": "UT1 advertising (firebog mirror)",
+     "source": "https://v.firebog.net/hosts/Prigent-Ads.txt",
+     "entries": 4269,
+     "error": null
+    },
+    {
+     "name": "culi831 complete ads block",
+     "source": "https://raw.githubusercontent.com/culi831/Pihole-block-list/refs/heads/culi831/Blocklist-2.txt",
+     "entries": 63796,
+     "error": null
+    },
+    {
+     "name": "NEO DEV HOST",
+     "source": "https://raw.githubusercontent.com/neodevpro/neodevhost/master/host",
+     "entries": 111967,
+     "error": null
+    },
+    {
+     "name": "HaGeZi Multi PRO++",
+     "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/pro.plus.txt",
+     "entries": 224788,
+     "error": null
+    },
+    {
+     "name": "oisd big",
+     "source": "https://big.oisd.nl",
+     "entries": 235122,
+     "error": null
+    },
+    {
+     "name": "RPiList EasyList",
+     "source": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/easylist",
+     "entries": 182916,
+     "error": null
+    },
+    {
+     "name": "Frogeye first-party trackers",
+     "source": "https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt",
+     "entries": 14797,
+     "error": null
+    },
+    {
+     "name": "Perflyst and Dandelion Sprout Smart-TV blocklist",
+     "source": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_7.txt",
+     "entries": 138,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "malware": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 4984492,
+   "files": [
+    {
+     "name": "malware-1.txt",
+     "entries": 1245440,
+     "bytes": 25480122
+    },
+    {
+     "name": "malware-2.txt",
+     "entries": 1244699,
+     "bytes": 25438255
+    },
+    {
+     "name": "malware-3.txt",
+     "entries": 1247007,
+     "bytes": 25487419
+    },
+    {
+     "name": "malware-4.txt",
+     "entries": 1247346,
+     "bytes": 25507730
+    }
+   ],
+   "sources": [
+    {
+     "name": "Dandelion Sprout anti-malware hosts",
+     "source": "https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt",
+     "entries": 11776,
+     "error": null
+    },
+    {
+     "name": "Disconnect malvertising",
+     "source": "https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt",
+     "entries": 2735,
+     "error": null
+    },
+    {
+     "name": "UT1 cryptojacking (firebog mirror)",
+     "source": "https://v.firebog.net/hosts/Prigent-Crypto.txt",
+     "entries": 11490,
+     "error": null
+    },
+    {
+     "name": "Mandiant APT1 report, appendix D",
+     "source": "https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt",
+     "entries": 2046,
+     "error": null
+    },
+    {
+     "name": "Phishing Army (extended)",
+     "source": "https://phishing.army/download/phishing_army_blocklist_extended.txt",
+     "entries": 152986,
+     "error": null
+    },
+    {
+     "name": "NoTrack malware",
+     "source": "https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt",
+     "entries": 125,
+     "error": null
+    },
+    {
+     "name": "KADhosts",
+     "source": "https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt",
+     "entries": 42976,
+     "error": null
+    },
+    {
+     "name": "WaLLy3K w3kbl",
+     "source": "https://v.firebog.net/hosts/static/w3kbl.txt",
+     "entries": 351,
+     "error": null
+    },
+    {
+     "name": "malware-filter phishing hosts",
+     "source": "https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt",
+     "entries": 24195,
+     "error": null
+    },
+    {
+     "name": "RPiList spam mails",
+     "source": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails",
+     "entries": 173417,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: fraud",
+     "source": "https://blocklistproject.github.io/Lists/fraud.txt",
+     "entries": 285200,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: malware",
+     "source": "https://blocklistproject.github.io/Lists/malware.txt",
+     "entries": 2655820,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: phishing",
+     "source": "https://blocklistproject.github.io/Lists/phishing.txt",
+     "entries": 190215,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: scam",
+     "source": "https://blocklistproject.github.io/Lists/scam.txt",
+     "entries": 8527,
+     "error": null
+    },
+    {
+     "name": "Matomo referrer spam",
+     "source": "https://raw.githubusercontent.com/matomo-org/referrer-spam-blacklist/master/spammers.txt",
+     "entries": 2352,
+     "error": null
+    },
+    {
+     "name": "Dan Pollock's hosts",
+     "source": "https://someonewhocares.org/hosts/zero/hosts",
+     "entries": 12972,
+     "error": null
+    },
+    {
+     "name": "UT1 malware (firebog mirror)",
+     "source": "https://v.firebog.net/hosts/Prigent-Malware.txt",
+     "entries": 239641,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: abuse",
+     "source": "https://blocklistproject.github.io/Lists/abuse.txt",
+     "entries": 435119,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: crypto",
+     "source": "https://blocklistproject.github.io/Lists/crypto.txt",
+     "entries": 1274,
+     "error": null
+    },
+    {
+     "name": "ZeroDot1 CoinBlockerLists (mirror)",
+     "source": "https://raw.githubusercontent.com/c11umw/adblock/refs/heads/main/zerodot1.CoinBlockerLists",
+     "entries": 3556,
+     "error": null
+    },
+    {
+     "name": "HaGeZi most abused TLDs",
+     "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/spam-tlds-adblock.txt",
+     "entries": 127,
+     "error": null
+    },
+    {
+     "name": "HaGeZi badware hosters",
+     "source": "https://gitlab.com/hagezi/mirror/-/raw/main/dns-blocklists/adblock/hoster.txt",
+     "entries": 1074,
+     "error": null
+    },
+    {
+     "name": "HaGeZi Threat Intelligence Feeds",
+     "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/tif.txt",
+     "entries": 1864453,
+     "error": null
+    },
+    {
+     "name": "uBlock Origin badware risks",
+     "source": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_50.txt",
+     "entries": 3266,
+     "error": null
+    },
+    {
+     "name": "RPiList malware",
+     "source": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/malware",
+     "entries": 666371,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "porn": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 5001926,
+   "files": [
+    {
+     "name": "porn-1.txt",
+     "entries": 1250290,
+     "bytes": 32943483
+    },
+    {
+     "name": "porn-2.txt",
+     "entries": 1249309,
+     "bytes": 32901659
+    },
+    {
+     "name": "porn-3.txt",
+     "entries": 1250618,
+     "bytes": 32941335
+    },
+    {
+     "name": "porn-4.txt",
+     "entries": 1251709,
+     "bytes": 32974371
+    }
+   ],
+   "sources": [
+    {
+     "name": "chadmayfield porn (all)",
+     "source": "https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list",
+     "entries": 1906594,
+     "error": null
+    },
+    {
+     "name": "chadmayfield porn (top 1M sites)",
+     "source": "https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list",
+     "entries": 11868,
+     "error": null
+    },
+    {
+     "name": "UT1 adult (firebog mirror)",
+     "source": "https://v.firebog.net/hosts/Prigent-Adult.txt",
+     "entries": 4592049,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: porn",
+     "source": "https://blocklistproject.github.io/Lists/porn.txt",
+     "entries": 953393,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "gambling": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 2097175,
+   "files": [
+    {
+     "name": "gambling-1.txt",
+     "entries": 1048435,
+     "bytes": 24550308
+    },
+    {
+     "name": "gambling-2.txt",
+     "entries": 1048740,
+     "bytes": 24550332
+    }
+   ],
+   "sources": [
+    {
+     "name": "RPiList gambling",
+     "source": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/gambling",
+     "entries": 1736174,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: gambling",
+     "source": "https://blocklistproject.github.io/Lists/gambling.txt",
+     "entries": 342623,
+     "error": null
+    },
+    {
+     "name": "HaGeZi gambling",
+     "source": "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/adblock/gambling.txt",
+     "entries": 626747,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "child-protection": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 220242,
+   "files": [
+    {
+     "name": "child-protection.txt",
+     "entries": 220242,
+     "bytes": 5355635
+    }
+   ],
+   "sources": [
+    {
+     "name": "RPiList child protection",
+     "source": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/child-protection",
+     "entries": 243357,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "social-media": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 29327,
+   "files": [
+    {
+     "name": "social-media.txt",
+     "entries": 29327,
+     "bytes": 950882
+    }
+   ],
+   "sources": [
+    {
+     "name": "Hand-made social-media domains",
+     "source": "sources.json: Hand-made social-media domains",
+     "entries": 86,
+     "error": null
+    },
+    {
+     "name": "anudeepND Facebook",
+     "source": "https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt",
+     "entries": 3996,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: TikTok",
+     "source": "https://blocklistproject.github.io/Lists/tiktok.txt",
+     "entries": 3725,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: Facebook",
+     "source": "https://blocklistproject.github.io/Lists/facebook.txt",
+     "entries": 22362,
+     "error": null
+    },
+    {
+     "name": "The Block List Project: Twitter",
+     "source": "https://blocklistproject.github.io/Lists/twitter.txt",
+     "entries": 1193,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "video": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 24302,
+   "files": [
+    {
+     "name": "video.txt",
+     "entries": 24302,
+     "bytes": 858474
+    }
+   ],
+   "sources": [
+    {
+     "name": "The Block List Project: YouTube",
+     "source": "https://blocklistproject.github.io/Lists/youtube.txt",
+     "entries": 24280,
+     "error": null
+    },
+    {
+     "name": "Hand-made video domains",
+     "source": "sources.json: Hand-made video domains",
+     "entries": 22,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "gaming": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 164,
+   "files": [
+    {
+     "name": "gaming.txt",
+     "entries": 164,
+     "bytes": 2652
+    }
+   ],
+   "sources": [
+    {
+     "name": "Hand-made gaming domains",
+     "source": "sources.json: Hand-made gaming domains",
+     "entries": 164,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "dating": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 21671,
+   "files": [
+    {
+     "name": "dating.txt",
+     "entries": 21671,
+     "bytes": 500767
+    }
+   ],
+   "sources": [
+    {
+     "name": "Lightswitch05 dating services (extended)",
+     "source": "https://www.github.developerdan.com/hosts/lists/dating-services-extended.txt",
+     "entries": 21671,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "drugs": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 26029,
+   "files": [
+    {
+     "name": "drugs.txt",
+     "entries": 26029,
+     "bytes": 491140
+    }
+   ],
+   "sources": [
+    {
+     "name": "The Block List Project: drugs",
+     "source": "https://blocklistproject.github.io/Lists/drugs.txt",
+     "entries": 26029,
+     "error": null
+    }
+   ],
+   "problems": []
+  },
+  "hate-fakenews": {
+   "status": "updated",
+   "updated": "2026-10-31 10:57 UTC",
+   "entries": 4410,
+   "files": [
+    {
+     "name": "hate-fakenews.txt",
+     "entries": 4410,
+     "bytes": 99126
+    }
+   ],
+   "sources": [
+    {
+     "name": "Lightswitch05 hate and junk (extended)",
+     "source": "https://www.github.developerdan.com/hosts/lists/hate-and-junk-extended.txt",
+     "entries": 2232,
+     "error": null
+    },
+    {
+     "name": "StevenBlack fake news extension",
+     "source": "https://raw.githubusercontent.com/StevenBlack/hosts/master/extensions/fakenews/hosts",
+     "entries": 2193,
+     "error": null
+    }
+   ],
+   "problems": []
+  }
+ }
+}
