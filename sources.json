@@ -640,13 +640,17 @@
             "warframe.com",
             "windscribe.com",
             "worldofwarcraft.com",
+            "worldx-global-assets.oss-us-east-1.aliyuncs.com",
             "xbox.com",
             "xboxlive.com",
             "xboxservices.com",
             "y8.com",
             "y8.org",
             "zombsroyale.io",
-            "zynga.com"
+            "zynga.com",
+            "||aniimo.com^",
+            "||funplus.com^",
+            "||kingsgroupgames.com^"
           ],
           "homepage": "https://github.com/nycoagung/dns-list",
           "licence": "GPL-3.0"
