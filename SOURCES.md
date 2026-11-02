@@ -111,7 +111,7 @@ Online games, game stores and launchers, and DNS and VPN services that get aroun
 
 | Source | Licence |
 |---|---|
-| [Hand-made gaming domains](https://github.com/nycoagung/dns-list) (168 domains listed in sources.json) | GPL-3.0 |
+| [Hand-made gaming domains](https://github.com/nycoagung/dns-list) (195 domains listed in sources.json) | GPL-3.0 |
 
 ## dating
 
