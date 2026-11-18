@@ -38,7 +38,6 @@ Malware, phishing, scams, fraud, spam and cryptojacking.
 | [KADhosts](https://github.com/FiltersHeroes/KADhosts) ([list](https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt)) | CC BY-SA 4.0 |
 | [WaLLy3K w3kbl](https://firebog.net) ([list](https://v.firebog.net/hosts/static/w3kbl.txt)) | CC BY 4.0 |
 | [malware-filter phishing hosts](https://gitlab.com/malware-filter/phishing-filter) ([list](https://malware-filter.gitlab.io/malware-filter/phishing-filter-hosts.txt)) | CC BY-SA 4.0 |
-| [RPiList spam mails](https://github.com/RPiList/specials) ([list](https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails)) | not stated |
 | [The Block List Project: fraud](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/fraud.txt)) | Unlicense |
 | [The Block List Project: malware](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/malware.txt)) | MIT |
 | [The Block List Project: phishing](https://github.com/blocklistproject/Lists) ([list](https://blocklistproject.github.io/Lists/phishing.txt)) | MIT |

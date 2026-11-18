@@ -149,12 +149,6 @@
           "licence": "CC BY-SA 4.0"
         },
         {
-          "name": "RPiList spam mails",
-          "url": "https://raw.githubusercontent.com/RPiList/specials/master/Blocklisten/spam.mails",
-          "homepage": "https://github.com/RPiList/specials",
-          "licence": "not stated"
-        },
-        {
           "name": "The Block List Project: fraud",
           "url": "https://blocklistproject.github.io/Lists/fraud.txt",
           "homepage": "https://github.com/blocklistproject/Lists",
